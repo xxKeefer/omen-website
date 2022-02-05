@@ -1,5 +1,7 @@
 import { getRuleFromSlug, getSlugs, RuleMeta, RULES_PATH } from '@api/api'
+import { HStack } from '@chakra-ui/react'
 import { BillBoard } from '@components/images/BillBoard'
+import { MainLayout, SidePanel } from '@components/layout'
 import OmenMDXStyle, { MDXWrapper } from '@components/style/OmenMDXStyle'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
@@ -17,13 +19,16 @@ export default function PostPage({ post }: { post: MDXPost }) {
             <Head>
                 <title>{post.meta.title}</title>
             </Head>
-            <h1>{post.meta.title}</h1>
-            <MDXWrapper>
-                <MDXRemote
-                    {...post.source}
-                    components={{ BillBoard, ...OmenMDXStyle }}
-                />
-            </MDXWrapper>
+            <HStack align="stretch">
+                <MainLayout>
+                    <MDXWrapper>
+                        <MDXRemote
+                            {...post.source}
+                            components={{ BillBoard, ...OmenMDXStyle }}
+                        />
+                    </MDXWrapper>
+                </MainLayout>
+            </HStack>
         </>
     )
 }
