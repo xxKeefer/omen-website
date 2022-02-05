@@ -4,7 +4,7 @@ const OmenChakraTheme = extendTheme({
     initialColorMode: 'dark',
     useSystemColorMode: false,
     fonts: {
-        heading: 'Lobster, sans-serif',
+        heading: 'Poppins, sans-serif',
         body: 'Poppins, sans-serif',
         pre: 'Share Tech Mono, monospace',
         code: 'Share Tech Mono, monospace',
@@ -12,7 +12,6 @@ const OmenChakraTheme = extendTheme({
     styles: {
         global: {
             body: {
-                paddingInline: '1rem',
                 bg: 'gray.900',
                 color: 'white',
             },
