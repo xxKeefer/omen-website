@@ -2,15 +2,16 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
 
-import { getSlugs } from './utils/getSlugs'
+import { getParams } from './utils/getParams'
 
 export const RULES_PATH = path.join(process.cwd(), 'markdown/rulebook')
 
 export const getAllRules = () => {
-    const rules = getSlugs(RULES_PATH)
-        .map((slug) => getRuleFromSlug(slug))
+    console.log({ slugs: getParams(RULES_PATH) })
+
+    const rules = getParams(RULES_PATH)
+        .map((params) => getRuleFromSlug(params.slug))
         .sort(sortBySectionAndRank)
-        .reverse()
     return rules
 }
 
@@ -41,6 +42,7 @@ export interface RuleMeta {
 
 export const getRuleFromSlug = (slug: string): Rule => {
     const rulePath = path.join(RULES_PATH, `${slug}.mdx`)
+
     const source = fs.readFileSync(rulePath)
     const { content, data } = matter(source)
 

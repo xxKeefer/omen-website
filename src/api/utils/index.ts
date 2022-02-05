@@ -1,1 +1,1 @@
-export * from './getSlugs'
+export * from './getParams'

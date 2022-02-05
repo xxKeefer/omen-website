@@ -1,2 +1,2 @@
 export * from './rulebook'
-export { getSlugs } from './utils'
+export * from './utils'

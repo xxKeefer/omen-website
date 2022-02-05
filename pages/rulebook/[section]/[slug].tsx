@@ -1,4 +1,10 @@
-import { getRuleFromSlug, getSlugs, RuleMeta, RULES_PATH } from '@api/index'
+import {
+    getParams,
+    getRuleFromSlug,
+    RuleMeta,
+    RULES_PATH,
+    Section,
+} from '@api/index'
 import { HStack } from '@chakra-ui/react'
 import { BillBoard } from '@components/images/BillBoard'
 import { MainLayout, SidePanel } from '@components/layout'
@@ -34,15 +40,18 @@ export default function PostPage({ post }: { post: MDXPost }) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const { slug } = params as { slug: string }
-    const { content, meta } = getRuleFromSlug(slug)
+    console.log('getStaticProps', params)
+
+    const { slug, section } = params as Section
+    const fullSlug = `${section}/${slug}`
+    const { content, meta } = getRuleFromSlug(fullSlug)
     const mdxSource = await serialize(content)
 
     return { props: { post: { source: mdxSource, meta } } }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = getSlugs(RULES_PATH).map((slug) => ({ params: { slug } }))
+    const paths = getParams(RULES_PATH).map((route) => ({ params: route }))
 
     return {
         paths,
