@@ -56,6 +56,9 @@ const OmenChakraTheme = extendTheme({
                 paddingLeft: '1rem',
                 paddingBlock: '0.5rem',
             },
+            a: {
+                color: 'pink.500',
+            },
         },
     },
 })

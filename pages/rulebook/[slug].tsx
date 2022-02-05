@@ -1,8 +1,8 @@
 import { getRuleFromSlug, getSlugs, RuleMeta, RULES_PATH } from '@api/api'
+import { BillBoard } from '@components/images/BillBoard'
 import OmenMDXStyle, { MDXWrapper } from '@components/style/OmenMDXStyle'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 
@@ -21,7 +21,7 @@ export default function PostPage({ post }: { post: MDXPost }) {
             <MDXWrapper>
                 <MDXRemote
                     {...post.source}
-                    components={{ Image, ...OmenMDXStyle }}
+                    components={{ BillBoard, ...OmenMDXStyle }}
                 />
             </MDXWrapper>
         </>

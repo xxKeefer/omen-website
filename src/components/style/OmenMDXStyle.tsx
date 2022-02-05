@@ -1,4 +1,5 @@
 import {
+    Center,
     Code,
     Divider,
     Heading,
@@ -17,7 +18,7 @@ const OmenMDXStyle = {
     h5: (props) => <Heading as="h5" fontSize="x-large" {...props} />,
     h6: (props) => <Heading as="h6" fontSize="larger" {...props} />,
     p: (props) => <Text as="p" fontSize="xl" {...props} />,
-    a: (props) => <Link as="a" fontSize="xl" {...props} />,
+    a: (props) => <Link as="a" fontSize="xl" color="teal.300" {...props} />,
     pre: (props) => <Text as="pre" fontSize="xl" {...props} />,
     code: (props) => <Code as="code" bg="teal.200" fontSize="xl" {...props} />,
     ul: (props) => <UnorderedList as="ul" {...props} />,
