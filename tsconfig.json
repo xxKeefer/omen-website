@@ -18,7 +18,7 @@
         "paths": {
             "@pages/*": ["pages/*"],
             "@markdown/*": ["markdown/*"],
-            "@components/*": ["components/*"],
+            "@components/*": ["src/components/*"],
             "@blog/*": ["markdown/blog/*"],
             "@utils/*": ["utils/*"],
             "@rulebook/*": ["markdown/rulebook/*"],

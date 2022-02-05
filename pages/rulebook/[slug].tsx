@@ -1,12 +1,10 @@
 import { getRuleFromSlug, getSlugs, RuleMeta, RULES_PATH } from '@api/api'
+import OmenMDXStyle, { MDXWrapper } from '@components/style/OmenMDXStyle'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
-// import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-// import rehypeHighlight from 'rehype-highlight'
-// import rehypeSlug from 'rehype-slug'
 
 interface MDXPost {
     source: MDXRemoteSerializeResult<Record<string, unknown>>
@@ -20,7 +18,12 @@ export default function PostPage({ post }: { post: MDXPost }) {
                 <title>{post.meta.title}</title>
             </Head>
             <h1>{post.meta.title}</h1>
-            <MDXRemote {...post.source} components={{ Image }} />
+            <MDXWrapper>
+                <MDXRemote
+                    {...post.source}
+                    components={{ Image, ...OmenMDXStyle }}
+                />
+            </MDXWrapper>
         </>
     )
 }
