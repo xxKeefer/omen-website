@@ -1,4 +1,4 @@
-import { getRuleFromSlug, getSlugs, RuleMeta, RULES_PATH } from '@api/api'
+import { getRuleFromSlug, getSlugs, RuleMeta, RULES_PATH } from '@api/index'
 import { HStack } from '@chakra-ui/react'
 import { BillBoard } from '@components/images/BillBoard'
 import { MainLayout, SidePanel } from '@components/layout'
