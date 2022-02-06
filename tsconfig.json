@@ -19,6 +19,7 @@
             "@pages/*": ["pages/*"],
             "@markdown/*": ["markdown/*"],
             "@components/*": ["src/components/*"],
+            "@constants/*": ["src/constants/*"],
             "@blog/*": ["markdown/blog/*"],
             "@utils/*": ["utils/*"],
             "@rulebook/*": ["markdown/rulebook/*"],

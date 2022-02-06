@@ -1,35 +1,35 @@
-import {
-    getParams,
-    getRuleFromSlug,
-    RuleMeta,
-    RULES_PATH,
-    Section,
-} from '@api/index'
+import { getParams, getRuleFromSlug, RuleMeta, Section } from '@api/index'
 import { HStack } from '@chakra-ui/react'
 import { BillBoard } from '@components/images/BillBoard'
-import { MainLayout, SidePanel } from '@components/layout'
+import { MainLayout } from '@components/layout'
 import OmenMDXStyle, { MDXWrapper } from '@components/style/OmenMDXStyle'
+import { PATHS } from '@constants/paths'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 
-interface MDXPost {
+interface MDXRules {
     source: MDXRemoteSerializeResult<Record<string, unknown>>
     meta: RuleMeta
 }
 
-export default function PostPage({ post }: { post: MDXPost }) {
+type RulesPageProps = {
+    docs: MDXRules
+    routes: string[]
+}
+
+export default function RulesPage({ docs, routes }: RulesPageProps) {
     return (
         <>
             <Head>
-                <title>{post.meta.title}</title>
+                <title>{docs.meta.title}</title>
             </Head>
             <HStack align="stretch">
-                <MainLayout>
+                <MainLayout routes={routes}>
                     <MDXWrapper>
                         <MDXRemote
-                            {...post.source}
+                            {...docs.source}
                             components={{ BillBoard, ...OmenMDXStyle }}
                         />
                     </MDXWrapper>
@@ -40,18 +40,18 @@ export default function PostPage({ post }: { post: MDXPost }) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    console.log('getStaticProps', params)
-
     const { slug, section } = params as Section
     const fullSlug = `${section}/${slug}`
     const { content, meta } = getRuleFromSlug(fullSlug)
     const mdxSource = await serialize(content)
 
-    return { props: { post: { source: mdxSource, meta } } }
+    return { props: { docs: { source: mdxSource, meta } } }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = getParams(RULES_PATH).map((route) => ({ params: route }))
+    const paths = getParams(PATHS.RULES).map((route) => {
+        return { params: route }
+    })
 
     return {
         paths,
