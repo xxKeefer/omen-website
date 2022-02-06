@@ -57,7 +57,7 @@ export const navigation: NavigationMenu = [
         links: [
             {
                 section: 'actions',
-                slug: 'test',
+                slug: 'actions',
                 label: 'Actions Overview',
                 rank: 0,
             },

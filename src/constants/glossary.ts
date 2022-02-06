@@ -1,5 +1,5 @@
 export const GLOSSARY = {
-    active: 'Created by a character and is currently in use',
+    active: 'Something that is created by a character and is currently in use, remains active for X turns.',
     advantage:
         'A word or phrase that highlights a detail about the scene with a player can use for a reroll or a +2 to a roll ',
     assumed: 'Common sense',

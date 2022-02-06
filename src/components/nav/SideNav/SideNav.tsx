@@ -17,7 +17,13 @@ import { NavHeading, navigation, NavLink } from './navigation'
 
 export const SideNav = () => {
     return (
-        <Accordion allowMultiple flex={1} bg="gray.800">
+        <Accordion
+            allowMultiple
+            flex={1}
+            bg="gray.800"
+            maxH="100vh"
+            overflowY="scroll"
+        >
             <Flex align="start">
                 <Box ml="3rem">
                     <Heading size="4xl" fontFamily="Lobster">

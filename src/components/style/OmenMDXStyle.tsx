@@ -56,5 +56,5 @@ const OmenMDXStyle = {
 export default OmenMDXStyle
 
 export const MDXWrapper = (props) => (
-    <Box pl="2rem" pr="2rem" className="themed-mdx" {...props} />
+    <Box pl="2rem" pr="2rem" width="100%" className="themed-mdx" {...props} />
 )

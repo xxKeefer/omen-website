@@ -2,9 +2,18 @@ import { Text, Tooltip } from '@chakra-ui/react'
 import { GLOSSARY, Glossary } from '@constants/index'
 import React from 'react'
 
-type Props = { term: Glossary }
+type Props = { term: Glossary; capitalize?: boolean; uppercase?: boolean }
 
-export const InlineDefine = ({ term }: Props) => {
+export const InlineDefine = ({ term, capitalize, uppercase }: Props) => {
+    const display = () => {
+        if (capitalize) {
+            return term.charAt(0).toUpperCase() + term.slice(1)
+        }
+        if (uppercase) {
+            return term.toUpperCase()
+        }
+        return term
+    }
     return (
         <Tooltip label={GLOSSARY[term]}>
             <Text
@@ -13,7 +22,7 @@ export const InlineDefine = ({ term }: Props) => {
                 fontWeight="bold"
                 textDecoration="underline"
             >
-                {term}
+                {display()}
             </Text>
         </Tooltip>
     )

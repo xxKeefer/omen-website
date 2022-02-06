@@ -9,9 +9,9 @@ type Props = {
 export const MainLayout = ({ children }: Props) => {
     return (
         <Box>
-            <HStack align="stretch" width="full" minH="100vh" spacing={0}>
+            <HStack align="stretch" w="100vw" minH="100vh" spacing={0} ov>
                 <SideNav />
-                <VStack w="85%" maxH="100vh" overflowY="scroll">
+                <VStack w="80%" maxH="100vh" overflowY="scroll">
                     {children}
                 </VStack>
             </HStack>
