@@ -5,6 +5,7 @@ import {
     AccordionItem,
     AccordionPanel,
     Box,
+    Flex,
     Heading,
     ListItem,
     OrderedList,
@@ -16,7 +17,14 @@ import { NavHeading, navigation, NavLink } from './navigation'
 
 export const SideNav = () => {
     return (
-        <Accordion allowMultiple flex={1} bg="gray.700">
+        <Accordion allowMultiple flex={1} bg="gray.800">
+            <Flex align="start">
+                <Box ml="3rem">
+                    <Heading size="4xl" fontFamily="Lobster">
+                        Omen
+                    </Heading>
+                </Box>
+            </Flex>
             {navigation.map((item) => {
                 return (
                     <AccordionItem border="none" key={item.label}>

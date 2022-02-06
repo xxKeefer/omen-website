@@ -17,6 +17,7 @@ import {
     Tr,
     UnorderedList,
 } from '@chakra-ui/react'
+import { Callout } from '@components/mdx'
 
 const OmenMDXStyle = {
     h1: (props) => <Heading as="h1" fontSize="5xl" {...props} />,
@@ -47,10 +48,11 @@ const OmenMDXStyle = {
         <Th as="th" borderColor="teal.300" color="pink.500" {...props} />
     ),
     tfoot: (props) => <Tfoot as="tfoot" borderColor="teal.300" {...props} />,
+    Callout: (props) => <Callout {...props} />,
 }
 
 export default OmenMDXStyle
 
 export const MDXWrapper = (props) => (
-    <Box padding="2rem" className="themed-mdx" {...props} />
+    <Box pl="2rem" pr="2rem" className="themed-mdx" {...props} />
 )

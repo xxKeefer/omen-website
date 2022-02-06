@@ -16,17 +16,16 @@ interface MDXRules {
 
 type RulesPageProps = {
     docs: MDXRules
-    routes: string[]
 }
 
-export default function RulesPage({ docs, routes }: RulesPageProps) {
+export default function RulesPage({ docs }: RulesPageProps) {
     return (
         <>
             <Head>
                 <title>{docs.meta.title}</title>
             </Head>
             <HStack align="stretch">
-                <MainLayout routes={routes}>
+                <MainLayout>
                     <MDXWrapper>
                         <MDXRemote
                             {...docs.source}
