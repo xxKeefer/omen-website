@@ -19,12 +19,12 @@ export const navigation: NavigationMenu = [
         label: 'Introduction',
         rank: 0,
         links: [
-            {
-                section: 'introduction',
-                slug: 'test',
-                label: 'Markdown Test',
-                rank: 1,
-            },
+            // {
+            //     section: 'introduction',
+            //     slug: 'test',
+            //     label: 'Markdown Test',
+            //     rank: 1,
+            // },
             {
                 section: 'introduction',
                 slug: 'index',

@@ -11,7 +11,9 @@ export const MainLayout = ({ children }: Props) => {
         <Box>
             <HStack align="stretch" width="full" minH="100vh" spacing={0}>
                 <SideNav />
-                <VStack w="85%">{children}</VStack>
+                <VStack w="85%" maxH="100vh" overflowY="scroll">
+                    {children}
+                </VStack>
             </HStack>
         </Box>
     )
