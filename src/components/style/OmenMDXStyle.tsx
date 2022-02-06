@@ -17,6 +17,7 @@ import {
     Tr,
     UnorderedList,
 } from '@chakra-ui/react'
+import { InlineDefine } from '@components/definitions/InlineDefine/InlineDefine'
 import { Callout } from '@components/mdx'
 
 const OmenMDXStyle = {
@@ -49,6 +50,7 @@ const OmenMDXStyle = {
     ),
     tfoot: (props) => <Tfoot as="tfoot" borderColor="teal.300" {...props} />,
     Callout: (props) => <Callout {...props} />,
+    InlineDefine: (props) => <InlineDefine {...props} />,
 }
 
 export default OmenMDXStyle
