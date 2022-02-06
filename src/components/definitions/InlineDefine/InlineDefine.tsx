@@ -15,7 +15,13 @@ export const InlineDefine = ({ term, capitalize, uppercase }: Props) => {
         return term
     }
     return (
-        <Tooltip label={GLOSSARY[term]}>
+        <Tooltip
+            label={GLOSSARY[term]}
+            placement="bottom-start"
+            hasArrow
+            bg="cyan.700"
+            color="white"
+        >
             <Text
                 as="span"
                 color="pink.500"
