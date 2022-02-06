@@ -10,7 +10,6 @@
         "@chakra-ui/react": "^1.8.1",
         "@emotion/react": "^11.7.1",
         "@emotion/styled": "^11.6.0",
-        "@fontsource/libre-barcode-39-extended-text": "^4.5.2",
         "@fontsource/lobster": "^4.5.1",
         "@fontsource/poppins": "^4.5.1",
         "@fontsource/share-tech-mono": "^4.5.1",
