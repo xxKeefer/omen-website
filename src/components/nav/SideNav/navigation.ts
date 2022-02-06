@@ -225,7 +225,7 @@ export const navigation: NavigationMenu = [
             },
             {
                 section: 'zones',
-                slug: 'combats',
+                slug: 'combat',
                 label: 'Zonal Combats',
                 rank: 3,
             },
