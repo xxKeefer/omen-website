@@ -23,7 +23,8 @@
             "@blog/*": ["markdown/blog/*"],
             "@utils/*": ["utils/*"],
             "@rulebook/*": ["markdown/rulebook/*"],
-            "@api/*": ["src/api/*"]
+            "@api/*": ["src/api/*"],
+            "@interfaces/*": ["src/interfaces/*"]
         }
     },
     "include": [

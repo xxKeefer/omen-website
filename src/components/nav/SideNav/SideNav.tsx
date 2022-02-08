@@ -5,33 +5,23 @@ import {
     AccordionItem,
     AccordionPanel,
     Box,
-    Flex,
     Heading,
     ListItem,
     OrderedList,
 } from '@chakra-ui/react'
+import { NavHeading, NavigationMenu, NavLink } from '@interfaces/index'
 import Link from 'next/link'
 import React from 'react'
 
-import { NavHeading, navigation, NavLink } from './navigation'
+type Props = {
+    menu: NavigationMenu
+    path: string
+}
 
-export const SideNav = () => {
+export const SideNav = ({ menu, path }: Props) => {
     return (
-        <Accordion
-            allowMultiple
-            flex={1}
-            bg="gray.800"
-            maxH="100vh"
-            overflowY="scroll"
-        >
-            <Flex align="start">
-                <Box ml="3rem">
-                    <Heading size="4xl" fontFamily="Lobster">
-                        Omen
-                    </Heading>
-                </Box>
-            </Flex>
-            {navigation.map((item) => {
+        <Accordion allowMultiple>
+            {menu.map((item) => {
                 return (
                     <AccordionItem border="none" key={item.label}>
                         <AccordionButton pb="0" pt="0">
@@ -49,13 +39,13 @@ export const SideNav = () => {
                                         .sort((a, b) =>
                                             a.rank > b.rank ? 1 : -1,
                                         )
-                                        .map(renderLinks)}
+                                        .map(renderLinks(path))}
                                 </OrderedList>
                             )}
                             {'headings' in item &&
                                 item.headings
                                     .sort((a, b) => (a.rank > b.rank ? 1 : -1))
-                                    .map(renderHeadings)}
+                                    .map(renderHeadings(path))}
                         </AccordionPanel>
                     </AccordionItem>
                 )
@@ -64,12 +54,12 @@ export const SideNav = () => {
     )
 }
 
-const renderLinks = (link: NavLink) => {
+const renderLinks = (path: string) => (link: NavLink) => {
     return (
         <ListItem key={link.label}>
             <Link
                 href={{
-                    pathname: '/rulebook/[section]/[slug]',
+                    pathname: path,
                     query: {
                         section: link.section,
                         slug: link.slug,
@@ -82,7 +72,7 @@ const renderLinks = (link: NavLink) => {
     )
 }
 
-const renderHeadings = (heading: NavHeading) => {
+const renderHeadings = (path: string) => (heading: NavHeading) => {
     return (
         <Accordion key={heading.label} defaultIndex={[0]} allowMultiple>
             <AccordionItem>
@@ -96,7 +86,7 @@ const renderHeadings = (heading: NavHeading) => {
                     {'links' in heading &&
                         heading.links
                             .sort((a, b) => (a.rank > b.rank ? 1 : -1))
-                            .map(renderLinks)}
+                            .map(renderLinks(path))}
                 </AccordionPanel>
             </AccordionItem>
         </Accordion>

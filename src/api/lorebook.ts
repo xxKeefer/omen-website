@@ -5,19 +5,19 @@ import path from 'path'
 
 import { getParams } from './utils/getParams'
 
-export const getAllRules = () => {
-    const rules = getParams(PATHS.RULES).map((params) =>
-        getRuleFromSlug(params.slug),
+export const getAllLore = () => {
+    const rules = getParams(PATHS.LORE).map((params) =>
+        getLoreFromSlug(params.slug),
     )
     return rules
 }
 
-interface Rule {
+interface Lore {
     content: string
-    meta: RuleMeta
+    meta: LoreMeta
 }
 
-export interface RuleMeta {
+export interface LoreMeta {
     excerpt: string
     slug: string
     title: string
@@ -27,10 +27,10 @@ export interface RuleMeta {
     rank: number
 }
 
-export const getRuleFromSlug = (slug: string): Rule => {
-    const rulePath = path.join(PATHS.RULES, `${slug}.mdx`)
+export const getLoreFromSlug = (slug: string): Lore => {
+    const lorePath = path.join(PATHS.LORE, `${slug}.mdx`)
 
-    const source = fs.readFileSync(rulePath)
+    const source = fs.readFileSync(lorePath)
     const { content, data } = matter(source)
 
     return {

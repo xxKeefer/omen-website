@@ -1,20 +1,6 @@
-export type NavHeading = {
-    label: string
-    rank: number
-    links?: NavLink[]
-    headings?: NavHeading[]
-}
+import { NavigationMenu } from '@interfaces/index'
 
-export type NavLink = {
-    section: string
-    slug: string
-    label: string
-    rank: number
-}
-
-type NavigationMenu = (NavHeading | NavLink)[]
-
-export const navigation: NavigationMenu = [
+export const rules: NavigationMenu = [
     {
         label: 'Introduction',
         rank: 0,
