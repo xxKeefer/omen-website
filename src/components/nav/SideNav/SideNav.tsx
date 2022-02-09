@@ -32,7 +32,7 @@ export const SideNav = ({ menu, path }: Props) => {
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>
-                        <AccordionPanel textAlign="left">
+                        <AccordionPanel textAlign="left" p="0">
                             {'links' in item && (
                                 <OrderedList>
                                     {item.links
@@ -62,7 +62,7 @@ const renderLinks = (path: string) => (link: NavLink) => {
                     pathname: path,
                     query: {
                         section: link.section,
-                        slug: link.slug,
+                        slug: link.slug.split('/'),
                     },
                 }}
             >
@@ -74,19 +74,23 @@ const renderLinks = (path: string) => (link: NavLink) => {
 
 const renderHeadings = (path: string) => (heading: NavHeading) => {
     return (
-        <Accordion key={heading.label} defaultIndex={[0]} allowMultiple>
-            <AccordionItem>
-                <AccordionButton>
+        <Accordion key={heading.label} allowMultiple p="0">
+            <AccordionItem border="none">
+                <AccordionButton pl="4" pb="0" pt="0">
                     <Box flex="1" textAlign="left">
-                        <Heading size="md">{heading.label}</Heading>
+                        <Heading p="0.5rem" size="sm" color="cyan.500">
+                            {heading.label}
+                        </Heading>
                     </Box>
                     <AccordionIcon />
                 </AccordionButton>
-                <AccordionPanel pb={4}>
-                    {'links' in heading &&
-                        heading.links
-                            .sort((a, b) => (a.rank > b.rank ? 1 : -1))
-                            .map(renderLinks(path))}
+                <AccordionPanel pl="4" pb="0" pt="0">
+                    <OrderedList>
+                        {'links' in heading &&
+                            heading.links
+                                .sort((a, b) => (a.rank > b.rank ? 1 : -1))
+                                .map(renderLinks(path))}
+                    </OrderedList>
                 </AccordionPanel>
             </AccordionItem>
         </Accordion>

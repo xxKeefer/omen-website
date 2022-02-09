@@ -13,8 +13,6 @@ import React from 'react'
 
 import { SideNav } from '..'
 
-type Props = {}
-
 export const TabbedMenu = () => {
     return (
         <Tabs
