@@ -113,7 +113,7 @@ export const lore: NavigationMenu = [
                     },
                     {
                         section: 'places/star-city',
-                        slug: 'sasara-ghara',
+                        slug: 'sasata-ghara',
                         label: 'Sasata Ghara',
                         rank: 6,
                     },
@@ -252,13 +252,13 @@ export const lore: NavigationMenu = [
                 rank: 3,
                 links: [
                     {
-                        section: 'factions-and-power-players/corsiars',
+                        section: 'factions-and-power-players/corsairs',
                         slug: 'rugug',
                         label: 'Rugug',
                         rank: 0,
                     },
                     {
-                        section: 'factions-and-power-players/corsiars',
+                        section: 'factions-and-power-players/corsairs',
                         slug: 'hands-of-midnight',
                         label: 'The 12 Hands',
                         rank: 1,
