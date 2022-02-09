@@ -168,7 +168,7 @@ export const lore: NavigationMenu = [
                 ],
             },
             {
-                label: 'Archipelago Cluster',
+                label: 'The Barrenies',
                 rank: 3,
                 links: [
                     {
