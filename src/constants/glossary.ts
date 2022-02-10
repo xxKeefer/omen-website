@@ -9,6 +9,8 @@ export const GLOSSARY = {
     dc: 'A dice roll to determine success or failure',
     detail: "A narrative permission that allows player's to do things they otherwise wouldn't",
     directive: 'Type of mission',
+    flip: 'Flip X omen tokens to the dark side.',
+    refresh: 'Flip X omen tokens to the light side.',
     enemy_detail: 'Narrative permission pertaining to an Enemy',
     premise: 'Assumed Concept',
     priority:
